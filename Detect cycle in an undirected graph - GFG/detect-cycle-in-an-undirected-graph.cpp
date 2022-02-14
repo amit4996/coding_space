@@ -24,7 +24,7 @@ class Solution {
                 }
                 else
                 {
-                    if(parent!=it && parent!=-1) return true;
+                    if(parent!=it) return true;
                 }
             }
         }
@@ -32,10 +32,13 @@ class Solution {
     }
     
     bool isCycle(int V, vector<int> adj[]) {
-       vector<int> vis(V,0);
-       for(int i=0;i<V;i++)
+       vector<int> vis(V+1,0);
+       for(int i=1;i<V;i++)
        {
-          if(cycledetectbfs(i,V,adj,vis)) return true;
+           if(!vis[i])
+          {
+              if(cycledetectbfs(i,V,adj,vis)) return true;
+          }
        }
        return false;
     }
