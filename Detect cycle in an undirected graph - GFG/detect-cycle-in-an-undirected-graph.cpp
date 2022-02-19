@@ -5,42 +5,70 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
   public:
-    int cycledetectbfs(int i,int V,vector<int> adj[],vector<int> &vis)
+    // int cycledetectbfs(int i,int V,vector<int> adj[],vector<int> &vis)
+    // {
+    //     queue<pair<int,int>> q;
+    //     q.push({i,-1});
+    //     vis[i]=1;
+    //     while(!q.empty())
+    //     {
+    //         int node=q.front().first;
+    //         int parent=q.front().second;
+    //         q.pop();
+    //         for(auto it:adj[node])
+    //         {
+    //             if(vis[it]==0)
+    //             {
+    //                 vis[it]=1;
+    //                 q.push({it,node});
+    //             }
+    //             else
+    //             {
+    //                 if(parent!=it) return true;
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // }
+    
+    // bool isCycle(int V, vector<int> adj[]) {
+    //   vector<int> vis(V,0);
+    //   for(int i=0;i<V;i++)
+    //   {
+    //       if(!vis[i])
+    //       {
+    //           if(cycledetectbfs(i,V,adj,vis)) return true;
+    //       }
+    //   }
+    //   return false;
+    // }
+    
+    bool cycledetectdfs(int node,int parent ,vector<int> adj[],vector<int> &vis)
     {
-        queue<pair<int,int>> q;
-        q.push({i,-1});
-        vis[i]=1;
-        while(!q.empty())
+        vis[node]=1;
+        for(auto it:adj[node])
         {
-            int node=q.front().first;
-            int parent=q.front().second;
-            q.pop();
-            for(auto it:adj[node])
+            if(vis[it]==0)
             {
-                if(vis[it]==0)
-                {
-                    vis[it]=1;
-                    q.push({it,node});
-                }
-                else
-                {
-                    if(parent!=it) return true;
-                }
+                if(cycledetectdfs(it,node,adj,vis)) return true;
+            }
+            else
+            {
+              if(it!=parent) return true;
             }
         }
         return false;
     }
-    
     bool isCycle(int V, vector<int> adj[]) {
-       vector<int> vis(V,0);
-       for(int i=0;i<V;i++)
-       {
-           if(!vis[i])
+      vector<int> vis(V,0);
+      for(int i=0;i<V;i++)
+      {
+          if(vis[i]==0)
           {
-              if(cycledetectbfs(i,V,adj,vis)) return true;
+              if(cycledetectdfs(i,-1,adj,vis)) return true;
           }
-       }
-       return false;
+      }
+      return false;
     }
 };
 
