@@ -6,7 +6,7 @@ using namespace std;
 class Solution {
   public:
     // Function to return Breadth First Traversal of given graph.
-    void bfstraversal(int V,vector<int> adj[],vector<int> &bfs,vector<int> &vis)
+    void bfstraversal(vector<int> adj[],vector<int> &bfs,vector<int> &vis)
 {
     queue<int> q;
     q.push(0);
@@ -29,7 +29,7 @@ class Solution {
     vector<int> bfsOfGraph(int V, vector<int> adj[]) {
         vector<int> bfs;
         vector<int> vis(V,0);
-        bfstraversal(V,adj,bfs,vis);
+        bfstraversal(adj,bfs,vis);
         return bfs;
     }
 };
