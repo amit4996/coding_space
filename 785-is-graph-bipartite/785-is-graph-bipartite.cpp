@@ -28,7 +28,7 @@ public:
         {
             if(color[i]==-1)
             {
-                if(!isbfsbipartite(i,graph,color)) return false;
+                if(isbfsbipartite(i,graph,color)==false) return false;
             }
         }
         return true;
