@@ -45,6 +45,7 @@ public:
         {
             if(color[i]==-1)
             {
+                 // if(isbfspartite(i,graph,color)==false) return false;
                 if(isdfspartite(i,graph,color)==false) return false;
             }
         }
