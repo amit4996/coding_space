@@ -12,7 +12,7 @@ class Solution {
         vis[node]=1;
         for(auto it:adj[node])
         {
-            if(vis[it]==0)
+            if(!vis[it])
             {
                 dfstraversal(it,adj,dfs,vis);
             }
