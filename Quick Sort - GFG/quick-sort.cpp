@@ -31,7 +31,7 @@ class Solution
        // Your code here
        int pivot=arr[high]; 
        int pindex=low; 
-       for(int i=low;i<high;i++) 
+       for(int i=low;i<=high;i++) 
        { 
            if(arr[i]<pivot) 
          { 
