@@ -22,9 +22,9 @@ class Solution
     //Function to sort the array using bubble sort algorithm.
     void bubbleSort(int arr[], int n)
     {
-         for(int i=0; i < n; i++){
+         for(int i=1; i <=n; i++){
              bool flag=false;
-           for(int j = 0; j < n-i-1; j++){
+           for(int j = 0; j <=n-i-1; j++){
                if(arr[j] > arr[j+1]) 
                    {
                        flag=true;
