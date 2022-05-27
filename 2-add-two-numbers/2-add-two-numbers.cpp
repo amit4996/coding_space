@@ -52,5 +52,29 @@ public:
             curr->next= new ListNode(carry);
         }
         return head->next;
+        
+        //         int temp=0;
+        // int carry=0;
+        // int sum=0;
+        // ListNode *head=new ListNode();
+        // ListNode *curr=head;
+        // while(l1!=NULL || l2!=NULL)
+        // {
+        //     int x=(l1!=NULL)?l1->val:0;
+        //     int y=(l2!=NULL)?l2->val:0;
+        //     temp=x+y+carry;
+        //     sum=temp%10;
+        //     carry=temp/10;
+        //     ListNode *temp=new ListNode(sum);
+        //     curr->next=temp;
+        //     curr=temp;
+        //     if(l1!=NULL)l1=l1->next;
+        //     if(l2!=NULL)l2=l2->next;
+        // }
+        // if(carry)
+        // {
+        //     curr->next=new ListNode(carry);
+        // }
+        // return head->next;
     }
 };
