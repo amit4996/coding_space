@@ -127,26 +127,18 @@ struct Node
  */
 
 //Function to return a list containing elements of left view of the binary tree.
-void helper(Node* node,int level,stack<int> &s)
+void helper(Node* node,int level,vector<int> &v)
 {
    if(node==NULL) return;
-   if(level==s.size()) s.push(node->data);
-   helper(node->left,level+1,s);
-   helper(node->right,level+1,s);
+   if(level==v.size()) v.push_back(node->data);
+   helper(node->left,level+1,v);
+   helper(node->right,level+1,v);
 }
 vector<int> leftView(Node *root)
 {
   vector<int> v;
   if(root==NULL) return v;
   int level=0;
-  stack<int> s;
-  helper(root,level,s);
-  while(!s.empty())
-  {
-      v.push_back(s.top());
-      s.pop();
-  }
-  reverse(v.begin(),v.end());
-
+  helper(root,level,v);
   return v;
 }
