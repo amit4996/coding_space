@@ -10,21 +10,23 @@ public:
         int start=0;
         int end=0;
         long long sum=0;
-        
-        while(end-start+1!=K)
-        {
-            sum+=Arr[end];
-            end++;
-        }
-        long long maxSum=sum;
+        long long mx=INT_MIN;
         while(end<N)
         {
-            sum=sum-Arr[start-1]+Arr[end];
-            maxSum=max(maxSum,sum);
-            start++;
-            end++;
+            sum+=Arr[end];
+            if(end-start+1<K)
+            {
+                end++;
+            }
+            else if(end-start+1==K)
+            {
+                mx=max(mx,sum);
+                sum-=Arr[start];
+                start++;
+                end++;
+            }
         }
-        return maxSum;
+        return mx;
     }
 };
 
