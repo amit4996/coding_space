@@ -18,7 +18,7 @@ public:
             {
                 end++;
             }
-            else if(end-start+1==K)
+            else
             {
                 mx=max(mx,sum);
                 sum-=Arr[start];
