@@ -24,14 +24,13 @@ public:
         q.push(root);
         while(!q.empty()){
             int size=q.size();
-		   while(size>0){
+		    for(int i=0;i<size;i++){
                 Node* temp=q.front();
                 q.pop();
                 if(temp->left) q.push(temp->left);
                 if(temp->right) q.push(temp->right);
-                if(size==1) temp->next=NULL;
+                if(size-1==i) temp->next=NULL;
                 else temp->next=q.front();
-                size--;
             }
         }
         return root;
