@@ -1,15 +1,14 @@
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
+        if(nums.size()==0 || nums.size()==1) return ;
         int pos1=-1;
         int pos2=-1;
-        int n=nums.size();
-        if(n==0 ||n==1) return;
-        for(int i=nums.size()-2;i>=0;i--)
+        for(int i=nums.size()-1;i>0;i--)
         {
-            if(nums[i]<nums[i+1])
+            if(nums[i-1]<nums[i])
             {
-                pos1=i;
+                pos1=i-1;
                 break;
             }
         }
@@ -20,15 +19,15 @@ public:
         else
         {
             for(int i=nums.size()-1;i>=0;i--)
-        {
-            if(nums[i]>nums[pos1])
             {
-                pos2=i;
-                break;
+                if(nums[i]>nums[pos1])
+                {
+                    pos2=i;
+                    break;
+                }
             }
-        }
-        swap(nums[pos1],nums[pos2]);
-        reverse(nums.begin()+pos1+1,nums.end());
+            swap(nums[pos1],nums[pos2]);
+            reverse(nums.begin()+pos1+1,nums.end());
         }
     }
 };
