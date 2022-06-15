@@ -3,13 +3,22 @@ public:
     int maxProfit(vector<int>& prices) {
         int n=prices.size();
         int mn=INT_MAX;
-        int ans=INT_MIN;
+        int ans=0;
         for(int i=0;i<n;i++)
         {
             mn=min(mn,prices[i]);
             ans=max(ans,prices[i]-mn);
         }
-        if(ans==INT_MIN) return 0;
         return ans;
+        // int n=prices.size();
+        // int mn=INT_MAX;
+        // int ans=INT_MIN;
+        // for(int i=0;i<n;i++)
+        // {
+        //     mn=min(mn,prices[i]);
+        //     ans=max(ans,prices[i]-mn);
+        // }
+        // if(ans==INT_MIN) return 0;
+        // return ans;
     }
 };
