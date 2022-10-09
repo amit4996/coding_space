@@ -7,16 +7,7 @@ public:
         if(n<2)
         {
             return n;
-        }
-        // if(n==2 && nums[0]==nums[1])
-        // {
-        //     return curr;
-        // }
-        // if(n==2 && nums[0]!=nums[1])
-        // {
-        //     return curr+1;
-        // }
-        
+        }    
         while(curr<n)
         {
             if(nums[prev]==nums[curr])
