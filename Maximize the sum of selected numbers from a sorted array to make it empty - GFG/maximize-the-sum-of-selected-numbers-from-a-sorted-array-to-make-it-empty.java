@@ -66,14 +66,11 @@ class Complete{
         int sum=0;
         for(int i=n-1;i>=0;i--)
         {
-            if(mp.containsKey(arr[i]))
-            {
                 if(mp.get(arr[i])>0)
             {
                 mp.put(arr[i],mp.get(arr[i])-1);
                 if(mp.containsKey(arr[i]-1))mp.put(arr[i]-1,mp.get(arr[i]-1)-1);
                 sum+=arr[i];
-            }
             }
         }
         return sum;
