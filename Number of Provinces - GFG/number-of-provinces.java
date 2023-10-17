@@ -32,13 +32,13 @@ class GFG {
 //User function Template for Java
 
 class Solution {
-    static void dfs(int node,ArrayList<ArrayList<Integer>> adj,boolean vis[])
+    static void dfs(int node,ArrayList<ArrayList<Integer>> adj,int vis[])
     {
-        vis[node]=true;
+        vis[node]=1;
         
         for(int i=0;i<adj.get(node).size();i++)
         {
-            if(vis[i]==false && adj.get(node).get(i)==1)
+            if(vis[i]==0 && adj.get(node).get(i)==1)
             {
                 dfs(i,adj,vis);
             }
@@ -46,11 +46,11 @@ class Solution {
     }
     static int numProvinces(ArrayList<ArrayList<Integer>> adj, int V) {
         int cnt=0;
-        boolean vis[]=new boolean[V];
-        Arrays.fill(vis,false);
+        int vis[]=new int[V];
+        // Arrays.fill(vis,false);
         for(int i=0;i<V;i++)
         {
-            if(!vis[i])
+            if(vis[i]==0)
             {
                 dfs(i,adj,vis);
                 cnt++;
