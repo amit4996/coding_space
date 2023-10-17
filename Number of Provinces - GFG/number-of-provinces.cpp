@@ -8,7 +8,7 @@ using namespace std;
 
 class Solution {
   public:
-    void dfs(int node,int vis[],vector<vector<int>> &adj)
+    void dfs(int node,vector<int> &vis,vector<vector<int>> &adj)
     {
         vis[node]=1;
         
@@ -21,7 +21,7 @@ class Solution {
         }
     }
     int numProvinces(vector<vector<int>> adj, int V) {
-        int vis[V]={0};
+        vector<int> vis(V,0);
         int numofProvinces=0;
         for(int i=0;i<V;i++)
         {
